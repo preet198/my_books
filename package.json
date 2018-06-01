@@ -1,0 +1,16 @@
+{
+  "name": "express-boilerplage",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Supreet Singh",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "body-parser": "^1.18.3",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "method-override": "^2.3.10",
+    "pg-monitor": "^1.0.0",
+    "pg-promise": "^8.4.4"
+  }
+}
