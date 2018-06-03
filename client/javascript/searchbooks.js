@@ -18,7 +18,7 @@ function start() {
       }
     );
 }
-console.log('hello');
+
 
 
 // Loads the JavaScript client library and invokes `start` afterwards.
