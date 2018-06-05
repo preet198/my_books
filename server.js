@@ -84,7 +84,7 @@ const requireLogin = (request, response, next) => {
 };
 
 //  redirect them after they are verified
-app.get("/favbooks", requireLogin, (request, response) => {
+app.get("/books/favbooks", requireLogin, (request, response) => {
   User.findUserById(request.session.userId).then(user => {
     response.render("books/favbooks");
   });
@@ -98,6 +98,12 @@ app.get("/books", (request, response) => {
 
 app.get("/books/searchbook", (request, response) => { 
       response.render("books/search");
+});
+
+app.get("/books/favbooks", (request, response) => {
+  Books.favbooks().then(book => {
+    response.render("books/favbooks", { book: book });
+  });
 });
 
 // get single book
@@ -121,6 +127,7 @@ app.post("/books", (req, res) => {
     res.redirect(302, "/books");
   });
 });
+
 
 app.put("/books/:id", (req, res) => {
   const id = Number(req.params.id);

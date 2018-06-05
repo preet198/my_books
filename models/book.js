@@ -25,6 +25,12 @@ Books.update = function (book) {
     );
 };
 
-Books.favbooks = favbook =>
-  db.all("SELECT * FROM books JOIN userson ")
+Books.favbooks = userid =>
+  db.any(`SELECT title FROM books 
+  JOIN fav_books ON fav_books.booksid = books.id 
+  JOIN users ON users.id = fav_books.userid 
+  WHERE users.id = $1`,[userid]);
+
 module.exports = Books;
+
+

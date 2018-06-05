@@ -12,7 +12,7 @@ CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username TEXT NOT NULL unique,
   password_digest VARCHAR NOT NULL,
-  fav_books INTEGER REFERENCES books(id)
+  
 );
 
 CREATE TABLE fav_books(
