@@ -108,6 +108,36 @@ app.get("/books/:id", (request, response) => {
   });
 });
 
+app.get("/books", (request, response) => {
+  Books.all().then(book => {
+    response.render("books/", { book: book });
+  });
+});
+
+app.post("/books", (req, res) => {
+  const newBook = req.body;
+  console.log(newBook);
+  Books.create(newBook).then(book => {
+    res.redirect(302, "/books");
+  });
+});
+
+app.put("/books/:id", (req, res) => {
+  const id = Number(req.params.id);
+  const updateBook = req.body;
+  updateBook.id = id;
+  Books.update(updateBook).then(book => {
+    res.redirect(302, "/books");
+  });
+});
+
+app.delete("/books/:id", (req, res) => {
+  const id = Number(req.params.id);
+  Books.delete(id).then(id => {
+    res.redirect(302, "/books");
+  });
+});
+
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}`);
 });

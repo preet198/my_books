@@ -14,23 +14,20 @@ function getbook(e) {
     .then(response => response.json())
     .then(response => {
           console.log(response);
-      // pic.setAttribute("src", "images/hydrangeas.jpg")
           
       for (let i = 0; i < response.items.length; i++) {
             const item = response.items[i];
-            let pic = item.volumeInfo.imageLinks.thumbnail;
-            let title = item.volumeInfo.title ;
-            let author = item.volumeInfo.authors[0];
-             document.getElementById("output").innerHTML +=   '<li>' +  title + '<br>' + 'BY: ' + author + '<br>' +  '<img src="' +  pic + '">'
+            // let pic = item.volumeInfo.imageLinks.thumbnail;
+            // let title = item.volumeInfo.title ;
+            // let author = item.volumeInfo.title ;
+            
+            if (item.volumeInfo.imageLinks.thumbnail !== undefined) {
+                  document.getElementById("output").innerHTML +=   '<h2>' +  item.volumeInfo.title  + '<br>' + '<br>' + 'BY: ' + item.volumeInfo.authors[0] + '<br>' +  '<img src="' +  item.volumeInfo.imageLinks.thumbnail + '">'
+            } else if (item.volumeInfo.imageLinks.thumbnail === undefined &&  item.volumeInfo.authors[0] === undefined){
+                  document.getElementById("output").innerHTML +=   '<h2>' +  item.volumeInfo.title + '<br>' 
+            } else {
+                  document.getElementById("output").innerHTML +=   '<h2>' +  item.volumeInfo.title  + '<br>' + '<br>' + 'BY: ' + item.volumeInfo.authors[0]
+            }
       };
     });
-
-  //   if (search === "") {
-  //     alert("Must enter something");
-  //   } else {
-  //     let title = "";
-  //     let author = "";
-  //     let img = "";
-  //     let url = "";
-  //   }
 }

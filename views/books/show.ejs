@@ -2,9 +2,18 @@
 
 <div class="books"> 
 
-
+    <img  src="<%=book.link%>" style = "width: 200px"> 
     <h1><%= book.title%> BY: <%=book.author%> </h1>
+    <form action="/books/<%=book.id%>/?_method=DELETE" method="POST" >
+        <button type="submit">Delete Book</button>
+    </form>
 
+    <form  method="POST" action="/books/<%= book.id %>?_method=PUT">
+        <input type="text" name="title" size='30' placeholder='Title' value="<%= book.title%>">
+        <input type="text" name="author" size="30" placeholder='Author'value="<%= book.author%>">
+        <input type="text" name="link" size="30" placeholder='Enter URL'value="<%= book.link%>">
+        <button type="submit">Update Book</button>
+    </form>
 </div>
 
 

@@ -6,8 +6,8 @@ DROP TABLE IF EXISTS books;
 CREATE TABLE books (
   id SERIAL PRIMARY KEY,
   author VARCHAR(250),
-  imageLink TEXT,
   title VARCHAR(250),
+  link TEXT
 );
 
 CREATE TABLE users (

@@ -4,12 +4,12 @@
 DELETE FROM books;
 
 INSERT INTO books
- (author, country, imageLink, book_language, link, pages, title, release_year)
+ (author, title, link)
 VALUES 
-  ('Chinua Achebe', 'Nigeria', 'images/things-fall-apart.jpg', 'English', 'https://en.wikipedia.org/wiki/Things_Fall_Apart\n',209,'Things Fall Apart',1958),
-  ('Hans Christian Andersen', 'Denmark','images/fairy-tales.jpg','Danish','https://en.wikipedia.org/wiki/Fairy_Tales_Told_for_Children._First_Collection.\n',784,'Fairy tales',1836),
-  ('Dante Alighieri', 'Italy','images/the-divine-comedy.jpg', 'Italian','https://en.wikipedia.org/wiki/Divine_Comedy\n',928,'The Divine Comedy',1315),
-  ('Jane Austen','United Kingdom','images/pride-and-prejudice.jpg', 'English','https://en.wikipedia.org/wiki/Pride_and_Prejudice\n', 226,'Pride and Prejudice',1813),
-  ('Samuel Beckett','Republic of Ireland','images/molloy-malone-dies-the-unnamable.jpg','French, English','https://en.wikipedia.org/wiki/Molloy_(novel)\n', 256,'Molloy, Malone Dies, The Unnamable, the trilogy', 1952),
-  ('Giovanni Boccaccio','Italy','images/the-decameron.jpg','Italian', 'https://en.wikipedia.org/wiki/The_Decameron\n',1024,'The Decameron',1351);
+  ('Chinua Achebe', 'Things Fall Apart', 'http://books.google.com/books/content?id=tSbWMu_-D5AC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api'),
+  ('Hans Christian Andersen', 'Fairy tales', 'https://i.pinimg.com/originals/6f/88/05/6f8805e5a534a94c1bc4b823f4f84039.jpg'),
+  ('Dante Alighieri', 'The Divine Comedy', 'https://www.papermasters.com/images/divine-comedy.jpg'),
+  ('Jane Austen', 'Pride and Prejudice', 'https://images-na.ssl-images-amazon.com/images/I/51nIjLRPKaL._SX258_BO1,204,203,200_.jpg'),
+  ('Samuel Beckett', 'Molloy, Malone Dies, The Unnamable, the trilogy', 'https://pictures.abebooks.com/isbn/9780394172996-us.jpg'),
+  ('Giovanni Boccaccio', 'The Decameron', 'http://www.loyalbooks.com/image/detail/Decameron-Giovanni-Boccaccio.jpg');
  

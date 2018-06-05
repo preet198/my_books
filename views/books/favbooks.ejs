@@ -1,1 +1,15 @@
+<% include ../partials/head %>
+
+
 <h1>hello</h1>
+
+<div class="favbooks"> 
+
+<% book.forEach(book => { %>
+<img  src="<%=book.link%>" style = "width: 200px">    
+    <h1><%= book.title%> </h1>
+  <h4>By: <%=book.author%> </h4>%>
+<% }); %>
+</div>
+
+<% include ../partials/footer %>

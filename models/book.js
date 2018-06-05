@@ -12,7 +12,7 @@ Books.find = function(id) {
 // author, country, imageLink, book_language, link, pages, title, release_year
 
 Books.create = function (newBook) {
-    return db.one('INSERT INTO books (subject, content) VALUES ($1, $2) RETURNING *',[newBook.subject, newBook.content]);
+    return db.one('INSERT INTO books (author, title, link) VALUES ($1, $2, $3) RETURNING *',[newBook.author, newBook.title, newBook.link]);
 };
 
 Books.delete = function(id) {
@@ -21,7 +21,7 @@ Books.delete = function(id) {
 
 Books.update = function (book) {
     return db.none(
-        'update books set subject = $1, content = $2 where id = $3', [book.subject, book.content, book.id]
+        'update books set author = $1, title = $2, link = $3 where id = $4', [book.author, book.title, book.link, book.id]
     );
 };
 module.exports = Books;

@@ -3,9 +3,9 @@
 <div class="books"> 
 
 <% book.forEach(book => { %>
-<img src="<%=book.imageLink%>">    
-    <h1><%= book.title%> </h1>
-  <h4>By: <%=book.author%> </h4>%>
+<a href="/books/<%=book.id%>"><img  src="<%=book.link%>" style = "width: 200px"></a>
+<a href="/books/<%=book.id%>"><h1><%= book.title%> </h1></a>
+<a href="/books/<%=book.id%>"> <h4>By: <%=book.author%> </h4></a>
 <% }); %>
 </div>
 
