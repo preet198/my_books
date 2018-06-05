@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const Books = require("./models/book");
+const Favs = require("./models/favs");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const User = require("./models/user");
@@ -84,11 +85,7 @@ const requireLogin = (request, response, next) => {
 };
 
 //  redirect them after they are verified
-app.get("/books/favbooks", requireLogin, (request, response) => {
-  User.findUserById(request.session.userId).then(user => {
-    response.render("books/favbooks");
-  });
-});
+
 // get all books
 app.get("/books", (request, response) => {
   Books.all().then(book => {
@@ -101,8 +98,10 @@ app.get("/books/searchbook", (request, response) => {
 });
 
 app.get("/books/favbooks", (request, response) => {
-  Books.favbooks().then(book => {
-    response.render("books/favbooks", { book: book });
+  const userid = request.session.userId;
+  Books.favbooks(userid).then(books => {
+    console.log(books);
+    response.render("books/favbooks", { books: books });
   });
 });
 
@@ -128,6 +127,15 @@ app.post("/books", (req, res) => {
   });
 });
 
+app.post("/books/:id/favbooks", (req, res) => {
+  const booksid = req.params.id;
+  const userid = req.session.userId;
+console.log(booksid, userid);
+
+  Favs.create(booksid, userid).then(book => {
+    res.redirect(302, "/books/favbooks");
+  });
+});
 
 app.put("/books/:id", (req, res) => {
   const id = Number(req.params.id);

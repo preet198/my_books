@@ -1,3 +1,4 @@
+DROP TABLE IF EXISTS fav_books;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS books;
 
@@ -11,8 +12,7 @@ CREATE TABLE books (
 CREATE TABLE users (
   id SERIAL PRIMARY KEY,
   username TEXT NOT NULL unique,
-  password_digest VARCHAR NOT NULL,
-  
+  password_digest VARCHAR NOT NULL
 );
 
 CREATE TABLE fav_books(

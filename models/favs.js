@@ -2,9 +2,9 @@ const db = require("../database/connection");
 
 const Favs = {};
 
-Favs.create = (bookid, userid) => 
-    db.one(`INSERT INTO fav_books (bookid, userid) Values ($1, $2)`,[bookid, userid]);
-
+Favs.create = (booksid, userid) => {
+    return db.one(`INSERT INTO fav_books (booksid, userid) Values ($1, $2) RETURNING *`,[booksid, userid]);
+};
 
 
 module.exports = Favs;
