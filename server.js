@@ -7,6 +7,7 @@ const User = require("./models/User");
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 const app = express();
+const fetch = require("node-fetch");
 
 // Allow override of HTTP methods based on the query string ?_method=DELETE
 app.use(methodOverride("_method"));
@@ -37,7 +38,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 app.get("/", (request, response) => {
-    response.render("books/main");
+  response.render("books/main");
 });
 
 //login page for user to login to see their fav books
@@ -67,8 +68,8 @@ app.post("/register", (request, response) => {
       username: request.body.username,
       password_digest: hash
     };
-    return User.create(user)
-    .then(x => { // have to use .then else you will be redirected without having user 
+    return User.create(user).then(x => {
+      // have to use .then else you will be redirected without having user
       request.session.id = x.id;
       response.redirect(302, "/books");
     });
@@ -82,9 +83,9 @@ const requireLogin = (request, response, next) => {
   next();
 };
 
-//  redirect them after they are verified 
+//  redirect them after they are verified
 app.get("/favbooks", requireLogin, (request, response) => {
-  User.find(request.session.userId).then(user => {
+  User.findUserById(request.session.userId).then(user => {
     response.render("books/favbooks");
   });
 });
@@ -94,7 +95,12 @@ app.get("/books", (request, response) => {
     response.render("books/index", { book: book });
   });
 });
-//get single book
+
+app.get("/books/searchbook", (request, response) => { 
+      response.render("books/search");
+});
+
+// get single book
 app.get("/books/:id", (request, response) => {
   const id = request.params.id;
   Books.find(id).then(book => {
