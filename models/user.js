@@ -14,6 +14,7 @@ User.findByUsername = username =>
 
 User.findUserById = userId =>
   db.one("SELECT * FROM users WHERE id = $1", [userId]);
-  
+
+
 module.exports = User;
 

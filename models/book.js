@@ -24,4 +24,7 @@ Books.update = function (book) {
         'update books set author = $1, title = $2, link = $3 where id = $4', [book.author, book.title, book.link, book.id]
     );
 };
+
+Books.favbooks = favbook =>
+  db.all("SELECT * FROM books JOIN userson ")
 module.exports = Books;
