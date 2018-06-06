@@ -1,4 +1,122 @@
 body {
-  background-color: #efefef;
+  background-color: black;
   font-family: "Roboto", sans-serif;
+  text-align: center;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+.login{
+text-align: center;
+color: rgb(145, 143, 143);
+}
+}
+.books{
+  justify-content: center;
+  justify-items: center;
+  align-content: center;
+  align-items: center;
+}
+p{
+  color: rgb(145, 143, 143)
+}
+a{
+text-decoration: none;
+color: white;
+padding-top: 2em;
+}
+img{
+  padding-top: 3em;
+  margin-top: 1em;
+}
+h1{
+  font-weight: bolder;
+  color: rgb(145, 143, 143)
+}
+h4{
+  margin-top: -1em;
+}
+Button {
+	box-shadow: 0px 1px 0px 0px #1c1b18;
+	background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
+	background-color:#eae0c2;
+	border-radius:15px;
+	border:1px solid #333029;
+	display:inline-block;
+	cursor:pointer;
+	color:#505739;
+	font-family:Arial;
+	font-size:12px;
+	font-weight: 300;
+	padding:6px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+Button:hover{
+	background:linear-gradient(to bottom, #ccc2a6 5%, #eae0c2 100%);
+	background-color:#ccc2a6;
+}
+Button:active {
+	position:relative;
+	top:1px;
+}
+input{
+  background-color:#eae0c2;
+	border-radius:10px;
+	border:1px solid #333029;
+	display:inline-block;
+	cursor: text;
+	color:#505739;
+	font-family:Arial;
+	font-size:12px;
+	font-weight: 300;
+	padding:6px 12px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #ffffff;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+h2,h3,a {
+	color: #34495e;
+}
+a {
+	text-decoration: none;
+}
+.logo {
+	margin: 0;
+	font-size: 1.45em;
+}
+.main-nav {
+  /* margin-top: 5px; */
+  display: inline-block;
+}
+.logo a, .main-nav a {
+	padding: 10px 15px;
+	text-transform: uppercase;
+	text-align: center;
+  display: inline-flex;
+}
+.main-nav a {
+	color: #34495e;
+  font-size: .99em;
+  display: inline-block;
+}
+.main-nav a:hover {
+	color: #718daa;
+}
+.header {
+	padding-top: .5em;
+	padding-bottom: .5em;
+	border: 1px solid #a2a2a2;
+	background-color: #f4f4f4;
+	box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+	border-radius: 5px;
+}
+@media (min-width: 1025px) {
+	.header {
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
 }

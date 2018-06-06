@@ -8,6 +8,10 @@
         <button type="submit">Delete Book</button>
     </form>
 
+    <form  method="POST" action="/books/<%= book.id %>/favbooks">
+        <button type="submit">Add this to favorite</button>
+    </form>
+
     <form  method="POST" action="/books/<%= book.id %>?_method=PUT">
         <input type="text" name="title" size='30' placeholder='Title' value="<%= book.title%>">
         <input type="text" name="author" size="30" placeholder='Author'value="<%= book.author%>">
@@ -15,9 +19,7 @@
         <button type="submit">Update Book</button>
     </form>
 
-    <form  method="POST" action="/books/<%= book.id %>/favbooks">
-    <button type="submit">Add this to favorite</button>
-    </form>
+
 </div>
 
 

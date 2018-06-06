@@ -22,11 +22,11 @@ function getbook(e) {
             // let author = item.volumeInfo.title ;
             
             if (item.volumeInfo.imageLinks.thumbnail !== undefined) {
-                  document.getElementById("output").innerHTML +=   '<h2>' +  item.volumeInfo.title  + '<br>' + '<br>' + 'BY: ' + item.volumeInfo.authors[0] + '<br>' +  '<img src="' +  item.volumeInfo.imageLinks.thumbnail + '">'
+                  document.getElementById("output").innerHTML +=   '<img src="' +  item.volumeInfo.imageLinks.thumbnail + '">' +'<h3>' +  item.volumeInfo.title  + '<br>' + '<br>' + 'BY: ' + item.volumeInfo.authors[0] + '<br>' 
             } else if (item.volumeInfo.imageLinks.thumbnail === undefined &&  item.volumeInfo.authors[0] === undefined){
-                  document.getElementById("output").innerHTML +=   '<h2>' +  item.volumeInfo.title + '<br>' 
+                  document.getElementById("output").innerHTML +=   '<h3>' +  item.volumeInfo.title + '<br>' 
             } else {
-                  document.getElementById("output").innerHTML +=   '<h2>' +  item.volumeInfo.title  + '<br>' + '<br>' + 'BY: ' + item.volumeInfo.authors[0]
+                  document.getElementById("output").innerHTML +=   '<h3>' +  item.volumeInfo.title  + '<br>' + '<br>' + 'BY: ' + item.volumeInfo.authors[0]
             }
       };
     });
